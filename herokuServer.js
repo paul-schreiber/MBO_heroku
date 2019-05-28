@@ -16,7 +16,7 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => console.log('Client disconnected'));
   socket.on("shoot", (payload) => {
     console.log(payload);
-    socket.broadcast.emit("shoot", payload);
+    socket.broadcast.emit("shoot", `${payload.x}#${payload.y}`);
   });
 
 });
