@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "alexa-sdk": "^1.0.25",
     "express": "4.17.1",
     "socket.io": "2.2.0"
   },
-  "scripts": {"start": "node herokuServer.js"}
+  "scripts": {
+    "start": "node herokuServer.js"
+  }
 }
