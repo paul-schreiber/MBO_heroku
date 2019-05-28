@@ -13,10 +13,10 @@ const server = express()
 const io = socketIO(server);
 io.on('connection', (socket) => {
   console.log('Client connected');
-  socket.emit("received", "test");
   socket.on('disconnect', () => console.log('Client disconnected'));
   socket.on("shoot", (payload) => {
     console.log(payload);
+    socket.broadcast.emit("shoot", payload);
   });
 
 });
