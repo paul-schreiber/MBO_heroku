@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
       lastValue = ''
       res.send('{}')
     } else if (req.query.command === 'restart-restart') {
-      lastValue = ''
+      lastValue = 'restart'
       res.send('{restart}')
     } else {
       res.send('{ "command":"' + req.query.command + '"}')
