@@ -8,7 +8,7 @@ const INDEX = path.join(__dirname, 'console.html');
 
 const server = express()
   .use((req, res) => res.sendFile(INDEX) )
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
+  .listen(process.env.PORT || PORT, () => console.log(`Listening on ${ PORT }`));
 
 const io = socketIO(server);
 io.on('connection', (socket) => {
