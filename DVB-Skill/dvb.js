@@ -10,7 +10,7 @@ getDepartures("33000803");
 getNextLine("85", "33000742")
 
 
-function getRoute(destination) {
+function getRoute(origin, destination) {
   let answer;
   const startTime = new Date();
 
@@ -29,7 +29,7 @@ function getDepartures(origin){
     //console.dir(data);
     let departureList = [];
     data.forEach(element => {
-      departureList.push({"line": element.line, "arrivalTimeRelative": element.arrivalTimeRelative, "platform": element.platform.name}) 
+      departureList.push({"line": element.line, "arrivalTimeRelative": element.arrivalTimeRelative, "direction": element.direction}) 
     });
     console.log(departureList);
   });
@@ -50,4 +50,19 @@ function getNextLine(line, origin){
   });
 }
 
+
+// NextBus Intent
+
+let nextLine = getNextLine("75","Helmholtzstraße");
+console.log(`Die nächste ${nextLine.line} in Richtung ${nextLine.direction} fährt in ${nextLine} Minuten`);
+
+// Route Intent
+
+let fastestTrip = getRoute("hier","Dohnaer Straße");
+console.log(`Am besten steigst du in die ${fastestTrip.line} in Richtung ${fastestTrip.direction} , Du steigst dann am ${fastestTrip} aus und Fährst...Minuten`);
+
+// Departures Intent
+
+let departures = getNextLine("75","Helmholtzstraße");
+console.log(`Die nächste ${nextLine.line} in Richtung ${nextLine.direction} fährt in ${nextLine} Minuten`);
 
